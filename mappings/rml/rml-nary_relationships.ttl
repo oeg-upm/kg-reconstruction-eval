@@ -212,7 +212,7 @@
         rml:objectMap [
             rr:template "http://semmeddb.com/entity-node/{ENTITY_ID}" ;
         ]
-    ];
+    ].
 
 :entityNode a rr:TriplesMap ;
     rml:logicalSource [
