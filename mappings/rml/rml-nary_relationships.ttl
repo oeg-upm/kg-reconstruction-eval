@@ -145,7 +145,7 @@
         rml:objectMap [
             rr:template "http://semmeddb.com/object-node/{PREDICATION_ID}" ;
         ]
-    ];
+    ].
 
 
 :objectNode a rr:TriplesMap ;
