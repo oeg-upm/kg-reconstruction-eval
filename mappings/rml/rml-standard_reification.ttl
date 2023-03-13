@@ -13,7 +13,7 @@
         rml:source "PREDICATION.csv" ;
     ];
     rml:subjectMap [
-        rr:template "http://semmeddb.com/statement/{PREDICATION_ID}" ;
+        rr:template "http://semmeddb.com/statement-predication-subject/{PREDICATION_ID}" ;
         rr:termType rr:IRI ;
         rr:class rdf:Statement ;
     ];
@@ -43,7 +43,7 @@
         rml:source "PREDICATION.csv" ;
     ];
     rml:subjectMap [
-        rr:template "http://semmeddb.com/statement/{PREDICATION_ID}" ;
+        rr:template "http://semmeddb.com/statement-predication-object/{PREDICATION_ID}" ;
         rr:termType rr:IRI ;
         rr:class rdf:Statement ;
     ];
@@ -75,7 +75,7 @@
         rml:source "PREDICATION_AUX.csv"
     ];
     rml:subjectMap [
-        rr:template "http://semmeddb.com/statement/{PREDICATION_ID}" ;
+        rr:template "http://semmeddb.com/statement-predication-subject/{PREDICATION_ID}" ;
         rr:termType rr:IRI ;
         rr:class rdf:Statement ;
     ];
@@ -91,7 +91,7 @@
         rml:source "PREDICATION_AUX.csv"
     ];
     rml:subjectMap [
-        rr:template "http://semmeddb.com/statement/{PREDICATION_ID}" ;
+        rr:template "http://semmeddb.com/statement-predication-object/{PREDICATION_ID}" ;
         rr:termType rr:IRI ;
         rr:class rdf:Statement ;
     ];
@@ -107,7 +107,7 @@
         rml:source "PREDICATION.csv" ;
     ];
     rml:subjectMap [
-        rr:template "http://semmeddb.com/statement/{PREDICATION_ID}-subject" ;
+        rr:template "http://semmeddb.com/statement-subject/{PREDICATION_ID}" ;
         rr:termType rr:IRI ;
         rr:class rdf:Statement ;
     ];
@@ -136,7 +136,7 @@
         rml:source "PREDICATION.csv" ;
     ];
     rml:subjectMap [
-        rr:template "http://semmeddb.com/statement/{PREDICATION_ID}-object" ;
+        rr:template "http://semmeddb.com/statement-object/{PREDICATION_ID}" ;
         rr:termType rr:IRI ;
         rr:class rdf:Statement ;
     ];
@@ -166,7 +166,7 @@
         rml:source "PREDICATION_AUX.csv"
     ];
     rml:subjectMap [
-        rr:template "http://semmeddb.com/statement/{PREDICATION_ID}-subject" ;
+        rr:template "http://semmeddb.com/statement-subject/{PREDICATION_ID}" ;
         rr:termType rr:IRI ;
         rr:class rdf:Statement ;
     ];
@@ -184,7 +184,7 @@
         rml:source "PREDICATION_AUX.csv"
     ];
     rml:subjectMap [
-        rr:template "http://semmeddb.com/statement/{PREDICATION_ID}-object" ;
+        rr:template "http://semmeddb.com/statement-object/{PREDICATION_ID}" ;
         rr:termType rr:IRI ;
         rr:class rdf:Statement ;
     ];
@@ -200,7 +200,7 @@
         rml:source "ENTITY.csv"
     ];
     rml:subjectMap [
-        rr:template "http://semmeddb.com/statement/{ENTITY_ID}" ;
+        rr:template "http://semmeddb.com/statement-entity/{ENTITY_ID}" ;
         rr:termType rr:IRI ;
         rr:class rdf:Statement ;
     ];
