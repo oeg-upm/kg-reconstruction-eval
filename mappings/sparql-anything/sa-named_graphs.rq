@@ -11,7 +11,7 @@ PREFIX  sem: <http://semmeddb.com/>
 CONSTRUCT
   {
     GRAPH ?predsub_graph_iri { ?predication_iri sem:subject ?subject_name_iri }
-    GRAPH ?predobj_graph_iri { ?predication_iri sem:object ?subject_name_iri }
+    GRAPH ?predobj_graph_iri { ?predication_iri sem:object ?object_name_iri }
     ?predsub_graph_iri sem:timestamp ?curr_timestamp .
     ?predobj_graph_iri sem:timestamp ?curr_timestamp .
 
@@ -21,7 +21,7 @@ CONSTRUCT
     ?object_graph_iri sem:score ?object_score .
 
     GRAPH ?entity_graph_iri { ?entity_id_iri sem:semanticType ?entity_semtype }
-    ?entity_graph_iri sem:score ?entiy_score .
+    ?entity_graph_iri sem:score ?entity_score .
 
   }
 WHERE
@@ -58,7 +58,7 @@ WHERE
 
         ?s  xyz:ENTITY_ID       ?entity_id;
             xyz:SEMTYPE         ?entity_semtype;
-            xyz:SCORE           ?entiy_score;
+            xyz:SCORE           ?entity_score;
 
         bind(uri(concat(str("http://semmeddb.com/entity/"),encode_for_uri(?entity_id))) as ?entity_id_iri)
         bind(uri(concat(str("http://semmeddb.com/graph-entity/"),encode_for_uri(?entity_id))) as ?entity_graph_iri)

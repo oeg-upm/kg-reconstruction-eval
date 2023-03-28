@@ -1,0 +1,53 @@
+PREFIX  ex: <http://example.org/>
+PREFIX  rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX  rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX  ex: <http://example/>
+PREFIX  sem: <http://semmeddb.com/>
+
+CONSTRUCT
+  {
+    GRAPH ?predsub_graph_iri { ?subject_predication_id sem:subject ?subject_name_iri } .
+    GRAPH ?predobj_graph_iri { ?object_predication_id sem:object ?object_name_iri } .
+    ?predsub_graph_iri sem:timestamp ?sub_timestamp .
+    ?predobj_graph_iri sem:timestamp ?obj_timestamp .
+
+    GRAPH ?subject_graph_iri { ?subject_name_iri sem:semanticType ?subject_semtype } .
+    GRAPH ?object_graph_iri { ?object_name_iri sem:semanticType ?object_semtype } .
+    ?subject_graph_iri sem:score ?subject_score .
+    ?object_graph_iri sem:score ?object_score .
+
+    GRAPH ?entity_graph_iri { ?entity_id_iri sem:semanticType ?entity_semtype } .
+    ?entity_graph_iri sem:score ?entity_score .
+
+  }
+WHERE {
+  ?predsub_stm_iri rdf:subject ?subject_predication_id ;
+                   rdf:object ?subject_name_iri ;
+                   rdf:predicate sem:subject ;
+                    sem:timestamp ?sub_timestamp .
+  ?predobj_stm_iri rdf:subject ?object_predication_id ;
+                   rdf:object ?object_name_iri ;
+                   rdf:predicate sem:object ;
+                    sem:timestamp ?obj_timestamp .
+
+  ?subject_stm_iri rdf:subject ?subject_name_iri ;
+                   rdf:object ?subject_semtype ;
+                   rdf:predicate sem:semanticType ;
+                   sem:score ?subject_score .
+  ?object_stm_iri rdf:subject ?object_name_iri ;
+               rdf:object ?object_semtype ;
+               rdf:predicate sem:semanticType ;
+               sem:score ?object_score .
+
+  ?entity_stm_iri rdf:subject ?entity_id_iri ;
+               rdf:object ?entity_semtype ;
+               rdf:predicate sem:semanticType ;
+               sem:score ?entity_score .
+
+  BIND(URI(REPLACE(STR(?predsub_stm_iri), "http://semmeddb.com/statement-predication-subject/", "http://semmeddb.com/graph-pred-subject/")) as ?predsub_graph_iri)
+  BIND(URI(REPLACE(STR(?predobj_stm_iri), "http://semmeddb.com/statement-predication-object/", "http://semmeddb.com/graph-pred-object/")) as ?predobj_graph_iri)
+  BIND(URI(REPLACE(STR(?subject_stm_iri), "http://semmeddb.com/statement-subject/", "http://semmeddb.com/graph-subject/")) as ?subject_graph_iri)
+  BIND(URI(REPLACE(STR(?object_stm_iri), "http://semmeddb.com/statement-object/", "http://semmeddb.com/graph-object/")) as ?object_graph_iri)
+  BIND(URI(REPLACE(STR(?entity_stm_iri), "http://semmeddb.com/statement-entity/", "http://semmeddb.com/graph-entity/")) as ?entity_graph_iri)
+
+}

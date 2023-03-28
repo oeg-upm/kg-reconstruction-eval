@@ -31,7 +31,7 @@ CONSTRUCT
     ?entity_stm_iri rdf:subject ?entity_id_iri ;
                  rdf:object ?entity_semtype ;
                  rdf:predicate sem:semanticType ;
-                 sem:score ?entiy_score .
+                 sem:score ?entity_score .
 
   }
 WHERE
@@ -68,7 +68,7 @@ WHERE
 
         ?s  xyz:ENTITY_ID       ?entity_id;
             xyz:SEMTYPE         ?entity_semtype;
-            xyz:SCORE           ?entiy_score;
+            xyz:SCORE           ?entity_score;
 
         bind(uri(concat(str("http://semmeddb.com/entity/"),encode_for_uri(?entity_id))) as ?entity_id_iri)
         bind(uri(concat(str("http://semmeddb.com/statement-entity/"),encode_for_uri(?entity_id))) as ?entity_stm_iri)

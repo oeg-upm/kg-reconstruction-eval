@@ -10,23 +10,23 @@ PREFIX  sem: <http://semmeddb.com/>
 
 CONSTRUCT
   {
-    ?predication_iri sem:predication_subject_node ?predsub_node_iri ;
-                     sem:predication_object_node ?predobj_node_iri .
+    ?predication_iri sem:predication-subject-node ?predsub_node_iri ;
+                     sem:predication-object-node ?predobj_node_iri .
     ?predsub_node_iri sem:subject ?subject_name_iri ;
                       sem:timestamp ?curr_timestamp .
     ?predobj_node_iri  sem:object ?object_name_iri ;
                        sem:timestamp ?curr_timestamp .
 
-    ?subject_name_iri sem:subject_node ?subject_node_iri .
+    ?subject_name_iri sem:subject-node ?subject_node_iri .
     ?subject_node_iri sem:semanticType ?subject_semtype ;
                       sem:score ?subject_score .
-    ?object_name_iri sem:object_node ?object_node_iri .
+    ?object_name_iri sem:object-node ?object_node_iri .
     ?object_node_iri sem:semanticType ?object_semtype ;
                      sem:score ?object_score .
 
-    ?entity_id_iri sem:entity_node ?entity_node_iri .
+    ?entity_id_iri sem:entity-node ?entity_node_iri .
     ?entity_node_iri sem:semanticType ?entity_semtype ;
-                     sem:score ?entiy_score .
+                     sem:score ?entity_score .
 
   }
 WHERE
@@ -63,7 +63,7 @@ WHERE
 
         ?s  xyz:ENTITY_ID       ?entity_id;
             xyz:SEMTYPE         ?entity_semtype;
-            xyz:SCORE           ?entiy_score;
+            xyz:SCORE           ?entity_score;
 
         bind(uri(concat(str("http://semmeddb.com/entity/"),encode_for_uri(?entity_id))) as ?entity_id_iri)
         bind(uri(concat(str("http://semmeddb.com/entity-node/"),encode_for_uri(?entity_id))) as ?entity_node_iri)

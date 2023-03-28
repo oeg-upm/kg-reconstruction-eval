@@ -1,0 +1,38 @@
+PREFIX  ex: <http://example.org/>
+PREFIX  rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX  rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX  ex: <http://example/>
+PREFIX  sem: <http://semmeddb.com/>
+
+CONSTRUCT
+  {
+    GRAPH ?predsub_graph_iri { ?subject_predication_id sem:subject ?subject_name_iri } .
+    GRAPH ?predobj_graph_iri { ?object_predication_id sem:object ?object_name_iri } .
+    ?predsub_graph_iri sem:timestamp ?sub_timestamp .
+    ?predobj_graph_iri sem:timestamp ?obj_timestamp .
+
+    GRAPH ?subject_graph_iri { ?subject_name_iri sem:semanticType ?subject_semtype } .
+    GRAPH ?object_graph_iri { ?object_name_iri sem:semanticType ?object_semtype } .
+    ?subject_graph_iri sem:score ?subject_score .
+    ?object_graph_iri sem:score ?object_score .
+
+    GRAPH ?entity_graph_iri { ?entity_id_iri sem:semanticType ?entity_semtype } .
+    ?entity_graph_iri sem:score ?entity_score .
+
+  }
+WHERE {
+  ?subject_predication_id sem:subject ?subject_name_iri .
+  ?object_predication_id sem:object ?object_name_iri .
+  << ?subject_name_iri sem:semanticType ?subject_semtype >> sem:score ?subject_score .
+  << ?object_name_iri sem:semanticType ?object_semtype >> sem:score ?object_score .
+  << ?subject_predication_id sem:subject ?subject_name_iri >> sem:timestamp ?sub_timestamp .
+  << ?object_predication_id sem:object ?object_name_iri >> sem:timestamp ?obj_timestamp .
+  << ?entity_id_iri sem:semanticType ?entity_semtype >> sem:score ?entity_score .
+
+  BIND(URI(REPLACE(STR(?subject_predication_id), "http://semmeddb.com/predication/", "http://semmeddb.com/graph-pred-subject/")) as ?predsub_graph_iri)
+  BIND(URI(REPLACE(STR(?object_predication_id), "http://semmeddb.com/predication/", "http://semmeddb.com/graph-pred-object/")) as ?predobj_graph_iri)
+  BIND(URI(REPLACE(STR(?subject_predication_id), "http://semmeddb.com/predication/", "http://semmeddb.com/graph-subject/")) as ?subject_graph_iri)
+  BIND(URI(REPLACE(STR(?object_predication_id), "http://semmeddb.com/predication/", "http://semmeddb.com/graph-object/")) as ?object_graph_iri)
+  BIND(URI(REPLACE(STR(?entity_id_iri), "http://semmeddb.com/entity/", "http://semmeddb.com/graph-entity/")) as ?entity_graph_iri)
+
+}
