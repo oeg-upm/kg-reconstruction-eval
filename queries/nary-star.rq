@@ -1,0 +1,35 @@
+PREFIX  ex: <http://example.org/>
+PREFIX  rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX  rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX  ex: <http://example/>
+PREFIX  sem: <http://semmeddb.com/>
+
+CONSTRUCT
+  {
+    ?subject_predication_id sem:subject ?subject_name_iri .
+    ?object_predication_id sem:object ?object_name_iri .
+    << ?subject_name_iri sem:semanticType ?subject_semtype >> sem:score ?subject_score .
+    << ?object_name_iri sem:semanticType ?object_semtype >> sem:score ?object_score .
+    << ?subject_predication_id sem:subject ?subject_name_iri >> sem:timestamp ?sub_timestamp .
+    << ?object_predication_id sem:object ?object_name_iri >> sem:timestamp ?obj_timestamp .
+    << ?entity_id_iri sem:semanticType ?entity_semtype >> sem:score ?entity_score .
+  }
+WHERE {
+  ?subject_predication_id sem:predication-subject-node ?predsub_node_iri .
+  ?object_predication_id sem:predication-object-node ?predobj_node_iri .
+  ?predsub_node_iri sem:subject ?subject_name_iri ;
+                    sem:timestamp ?sub_timestamp .
+  ?predobj_node_iri  sem:object ?object_name_iri ;
+                     sem:timestamp ?obj_timestamp .
+
+  ?subject_name_iri sem:subject-node ?subject_node_iri .
+  ?subject_node_iri sem:semanticType ?subject_semtype ;
+                    sem:score ?subject_score .
+  ?object_name_iri sem:object-node ?object_node_iri .
+  ?object_node_iri sem:semanticType ?object_semtype ;
+                   sem:score ?object_score .
+
+  ?entity_id_iri sem:entity-node ?entity_node_iri .
+  ?entity_node_iri sem:semanticType ?entity_semtype ;
+                   sem:score ?entity_score .
+}
