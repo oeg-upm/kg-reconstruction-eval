@@ -33,7 +33,7 @@ WHERE
   { SERVICE <x-sparql-anything:location=./predication.csv,csv.headers=true,csv.null-string=''>
       {
 
-        ?s  xyz:PREDICATION_ID  ?predication_id;
+        []  xyz:PREDICATION_ID  ?predication_id;
             xyz:SUBJECT_NAME    ?subject_name;
             xyz:OBJECT_NAME     ?object_name;
             xyz:SUBJECT_SEMTYPE ?subject_semtype;
@@ -52,7 +52,7 @@ WHERE
     SERVICE <x-sparql-anything:location=./predication_aux.csv,csv.headers=true,csv.null-string=''>
       {
 
-        ?s  xyz:PREDICATION_ID  ?predication_id;
+        []  xyz:PREDICATION_ID  ?predication_id;
             xyz:SUBJECT_SCORE   ?subject_score;
             xyz:OBJECT_SCORE    ?object_score;
             xyz:CURR_TIMESTAMP  ?curr_timestamp;
@@ -61,7 +61,7 @@ WHERE
     SERVICE <x-sparql-anything:location=./entity.csv,csv.headers=true,csv.null-string=''>
       {
 
-        ?s  xyz:ENTITY_ID       ?entity_id;
+        []  xyz:ENTITY_ID       ?entity_id;
             xyz:SEMTYPE         ?entity_semtype;
             xyz:SCORE           ?entity_score;
 
