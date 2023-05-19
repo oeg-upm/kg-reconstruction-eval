@@ -222,13 +222,6 @@
         rr:template "http://semmeddb.com/entity-semtype/{ENTITY_ID}" ;
         rr:termType rr:IRI ;
     ];
-
-    rr:predicateObjectMap [
-        rr:predicate sem:entity ;
-        rml:objectMap [
-            rr:template "http://semmeddb.com/entity/{ENTITY_ID}" ;
-        ]
-    ];
     rr:predicateObjectMap [
         rr:predicate sem:semanticType ;
         rml:objectMap [
