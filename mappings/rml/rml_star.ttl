@@ -41,7 +41,7 @@
     ]
 .
 
-:subject a rr:TriplesMap, rml:NonAssertedTriplesMap ;
+:subject a rr:TriplesMap ;
     rml:logicalSource [
         rml:source "PREDICATION.csv";
     ];
@@ -56,7 +56,7 @@
         ]
     ] .
 
-:object a rr:TriplesMap,rml:NonAssertedTriplesMap ;
+:object a rr:TriplesMap ;
     rml:logicalSource [
         rml:source "PREDICATION.csv";
     ];
@@ -145,7 +145,7 @@
         ]
     ] .
 
-:entity a rr:TriplesMap, rml:NonAssertedTriplesMap ;
+:entity a rr:TriplesMap ;
     rml:logicalSource [
         rml:source "ENTITY.csv"
     ];
