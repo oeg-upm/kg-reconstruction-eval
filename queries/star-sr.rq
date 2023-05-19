@@ -36,6 +36,10 @@ WHERE {
   << ?object_predication_id sem:object ?object_name_iri >> sem:timestamp ?obj_timestamp .
   << ?entity_id_iri sem:semanticType ?entity_semtype >> sem:score ?entity_score .
 
+  FILTER(CONTAINS(STR(?subject_name_iri), "http://semmeddb.com/subject/"))
+  FILTER(CONTAINS(STR(?object_name_iri), "http://semmeddb.com/object/"))
+  FILTER(CONTAINS(STR(?entity_id_iri), "http://semmeddb.com/entity/"))
+
   BIND(URI(REPLACE(STR(?subject_predication_id), "http://semmeddb.com/predication/", "http://semmeddb.com/predication-subject/")) as ?predsub_node_iri)
   BIND(URI(REPLACE(STR(?object_predication_id), "http://semmeddb.com/predication/", "http://semmeddb.com/predication-object/")) as ?predobj_node_iri)
   BIND(URI(REPLACE(STR(?subject_predication_id), "http://semmeddb.com/predication/", "http://semmeddb.com/subject-semtype/")) as ?subject_node_iri)

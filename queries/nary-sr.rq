@@ -6,25 +6,30 @@ PREFIX  sem: <http://semmeddb.com/>
 
 CONSTRUCT
   {
-  ?predsub_node_iri rdf:subject ?subject_predication_id ;
+  ?predsub_node_iri a rdf:Statement ;
+                    rdf:subject ?subject_predication_id ;
                    rdf:object ?subject_name_iri ;
                    rdf:predicate sem:subject ;
                     sem:timestamp ?sub_timestamp .
-  ?predobj_node_iri rdf:subject ?object_predication_id ;
+  ?predobj_node_iri a rdf:Statement ;
+                    rdf:subject ?object_predication_id ;
                    rdf:object ?object_name_iri ;
                    rdf:predicate sem:object ;
                     sem:timestamp ?obj_timestamp .
 
-  ?subject_node_iri rdf:subject ?subject_name_iri ;
+  ?subject_node_iri a rdf:Statement ;
+                    rdf:subject ?subject_name_iri ;
                    rdf:object ?subject_semtype ;
                    rdf:predicate sem:semanticType ;
                    sem:score ?subject_score .
-  ?object_node_iri rdf:subject ?object_name_iri ;
+  ?object_node_iri a rdf:Statement ;
+                    rdf:subject ?object_name_iri ;
                rdf:object ?object_semtype ;
                rdf:predicate sem:semanticType ;
                sem:score ?object_score .
 
-  ?entity_node_iri rdf:subject ?entity_id_iri ;
+  ?entity_node_iri a rdf:Statement ;
+                    rdf:subject ?entity_id_iri ;
                rdf:object ?entity_semtype ;
                rdf:predicate sem:semanticType ;
                sem:score ?entity_score .

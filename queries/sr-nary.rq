@@ -47,4 +47,6 @@ WHERE {
                rdf:object ?entity_semtype ;
                rdf:predicate sem:semanticType ;
                sem:score ?entity_score .
+
+    FILTER(CONTAINS(STR(?entity_id_iri), "http://semmeddb.com/entity/"))
 }
