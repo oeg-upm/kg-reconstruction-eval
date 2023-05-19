@@ -11,11 +11,14 @@ PREFIX  sem: <http://semmeddb.com/>
 CONSTRUCT
   {
     ?subject_predication_id sem:subject ?subject_name_iri .
-    ?object_predication_id sem:object ?object_name_iri .
-    << ?subject_name_iri sem:semanticType ?subject_semtype >> sem:score ?subject_score .
-    << ?object_name_iri sem:semanticType ?object_semtype >> sem:score ?object_score .
     << ?subject_predication_id sem:subject ?subject_name_iri >> sem:timestamp ?curr_timestamp .
+    ?object_predication_id sem:object ?object_name_iri .
     << ?object_predication_id sem:object ?object_name_iri >> sem:timestamp ?curr_timestamp .
+    ?subject_name_iri sem:semanticType ?subject_semtype .
+    << ?subject_name_iri sem:semanticType ?subject_semtype >> sem:score ?subject_score .
+    ?object_name_iri sem:semanticType ?object_semtype .
+    << ?object_name_iri sem:semanticType ?object_semtype >> sem:score ?object_score .
+    ?entity_id_iri sem:semanticType ?entity_semtype .
     << ?entity_id_iri sem:semanticType ?entity_semtype >> sem:score ?entity_score .
   }
 WHERE  {
