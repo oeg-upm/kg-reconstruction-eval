@@ -19,7 +19,7 @@
     rr:predicateObjectMap [
         rr:predicate  sem:subject;
         rml:objectMap [
-            rr:template "http://semmeddb.com/subject-predication/{SUBJECT_NAME}";
+            rr:template "http://semmeddb.com/subject/{SUBJECT_NAME}";
             rr:termType rr:IRI;
         ]
     ] .
@@ -35,7 +35,7 @@
     rr:predicateObjectMap [
         rr:predicate  sem:object;
         rml:objectMap [
-            rr:template "http://semmeddb.com/object-predication/{OBJECT_NAME}";
+            rr:template "http://semmeddb.com/object/{OBJECT_NAME}";
             rr:termType rr:IRI;
         ]
     ]
@@ -46,7 +46,7 @@
         rml:source "PREDICATION.csv";
     ];
     rml:subjectMap [
-        rr:template "http://semmeddb.com/subject-predication/{SUBJECT_NAME}"
+        rr:template "http://semmeddb.com/subject/{SUBJECT_NAME}"
     ];
 
     rr:predicateObjectMap [
@@ -61,7 +61,7 @@
         rml:source "PREDICATION.csv";
     ];
     rml:subjectMap [
-        rr:template "http://semmeddb.com/object-predication/{OBJECT_NAME}"
+        rr:template "http://semmeddb.com/object/{OBJECT_NAME}"
     ];
 
     rr:predicateObjectMap [

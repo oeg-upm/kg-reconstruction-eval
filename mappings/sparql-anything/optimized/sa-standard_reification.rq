@@ -58,12 +58,12 @@ WHERE
             xyz:OBJECT_SEMTYPE  ?object_semtype;
 
         bind(uri(concat(str("http://semmeddb.com/predication/"),encode_for_uri(?predication_id))) as ?predication_iri)
-        bind(uri(concat(str("http://semmeddb.com/statement-predication-subject/"),encode_for_uri(?predication_id))) as ?predsub_stm_iri)
-        bind(uri(concat(str("http://semmeddb.com/statement-predication-object/"),encode_for_uri(?predication_id))) as ?predobj_stm_iri)
-        bind(uri(concat(str("http://semmeddb.com/subject-predication/"),encode_for_uri(?subject_name))) as ?subject_name_iri)
-        bind(uri(concat(str("http://semmeddb.com/statement-subject/"),encode_for_uri(?predication_id))) as ?subject_stm_iri)
-        bind(uri(concat(str("http://semmeddb.com/object-predication/"),encode_for_uri(?object_name))) as ?object_name_iri)
-        bind(uri(concat(str("http://semmeddb.com/statement-object/"),encode_for_uri(?predication_id))) as ?object_stm_iri)
+        bind(uri(concat(str("http://semmeddb.com/predication-subject/"),encode_for_uri(?predication_id))) as ?predsub_stm_iri)
+        bind(uri(concat(str("http://semmeddb.com/predication-object/"),encode_for_uri(?predication_id))) as ?predobj_stm_iri)
+        bind(uri(concat(str("http://semmeddb.com/subject/"),encode_for_uri(?subject_name))) as ?subject_name_iri)
+        bind(uri(concat(str("http://semmeddb.com/subject-semtype/"),encode_for_uri(?predication_id))) as ?subject_stm_iri)
+        bind(uri(concat(str("http://semmeddb.com/object/"),encode_for_uri(?object_name))) as ?object_name_iri)
+        bind(uri(concat(str("http://semmeddb.com/object-semtype/"),encode_for_uri(?predication_id))) as ?object_stm_iri)
 
       }
 
@@ -76,7 +76,7 @@ WHERE
             xyz:SCORE           ?entity_score;
 
         bind(uri(concat(str("http://semmeddb.com/entity/"),encode_for_uri(?entity_id))) as ?entity_id_iri)
-        bind(uri(concat(str("http://semmeddb.com/statement-entity/"),encode_for_uri(?entity_id))) as ?entity_stm_iri)
+        bind(uri(concat(str("http://semmeddb.com/entity-semtype/"),encode_for_uri(?entity_id))) as ?entity_stm_iri)
 
 
       }

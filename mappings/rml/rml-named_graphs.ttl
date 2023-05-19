@@ -14,13 +14,13 @@
     ];
     rml:subjectMap [
         rr:template "http://semmeddb.com/predication/{PREDICATION_ID}";
-        rr:graphMap [ rr:template "http://semmeddb.com/graph-pred-subject/{PREDICATION_ID}"]
+        rr:graphMap [ rr:template "http://semmeddb.com/predication-subject/{PREDICATION_ID}"]
     ];
 
     rr:predicateObjectMap [
         rr:predicate  sem:subject;
         rml:objectMap [
-            rr:template "http://semmeddb.com/subject-predication/{SUBJECT_NAME}";
+            rr:template "http://semmeddb.com/subject/{SUBJECT_NAME}";
             rr:termType rr:IRI;
         ]
     ] .
@@ -31,13 +31,13 @@
     ];
     rml:subjectMap [
         rr:template "http://semmeddb.com/predication/{PREDICATION_ID}";
-        rr:graphMap [ rr:template "http://semmeddb.com/graph-pred-object/{PREDICATION_ID}"]
+        rr:graphMap [ rr:template "http://semmeddb.com/predication-object/{PREDICATION_ID}"]
     ];
 
     rr:predicateObjectMap [
         rr:predicate  sem:object;
         rml:objectMap [
-            rr:template "http://semmeddb.com/object-predication/{OBJECT_NAME}";
+            rr:template "http://semmeddb.com/object/{OBJECT_NAME}";
             rr:termType rr:IRI;
         ]
     ]
@@ -48,7 +48,7 @@
         rml:source "PREDICATION_AUX.csv"
     ];
     rml:subjectMap [
-        rr:template "http://semmeddb.com/graph-pred-subject/{PREDICATION_ID}"
+        rr:template "http://semmeddb.com/predication-subject/{PREDICATION_ID}"
     ];
     rr:predicateObjectMap [
         rr:predicate sem:timestamp ;
@@ -62,7 +62,7 @@
         rml:source "PREDICATION_AUX.csv"
     ];
     rml:subjectMap [
-        rr:template "http://semmeddb.com/graph-pred-object/{PREDICATION_ID}"
+        rr:template "http://semmeddb.com/predication-object/{PREDICATION_ID}"
     ];
     rr:predicateObjectMap [
         rr:predicate sem:timestamp ;
@@ -76,8 +76,8 @@
         rml:source "PREDICATION.csv";
     ];
     rml:subjectMap [
-        rr:template "http://semmeddb.com/subject-predication/{SUBJECT_NAME}";
-        rr:graphMap [ rr:template "http://semmeddb.com/graph-subject/{PREDICATION_ID}"]
+        rr:template "http://semmeddb.com/subject/{SUBJECT_NAME}";
+        rr:graphMap [ rr:template "http://semmeddb.com/subject-semtype/{PREDICATION_ID}"]
     ];
 
     rr:predicateObjectMap [
@@ -92,8 +92,8 @@
         rml:source "PREDICATION.csv";
     ];
     rml:subjectMap [
-        rr:template "http://semmeddb.com/object-predication/{OBJECT_NAME}";
-        rr:graphMap [ rr:template "http://semmeddb.com/graph-object/{PREDICATION_ID}"]
+        rr:template "http://semmeddb.com/objectn/{OBJECT_NAME}";
+        rr:graphMap [ rr:template "http://semmeddb.com/object-semtype/{PREDICATION_ID}"]
     ];
 
     rr:predicateObjectMap [
@@ -109,7 +109,7 @@
         rml:source "PREDICATION_AUX.csv"
     ];
     rml:subjectMap [
-        rr:template "http://semmeddb.com/graph-subject/{PREDICATION_ID}"
+        rr:template "http://semmeddb.com/subject-semtype/{PREDICATION_ID}"
     ];
     rr:predicateObjectMap [
         rr:predicate sem:score ;
@@ -124,7 +124,7 @@
         rml:source "PREDICATION_AUX.csv"
     ];
     rml:subjectMap [
-        rr:template "http://semmeddb.com/graph-object/{PREDICATION_ID}"
+        rr:template "http://semmeddb.com/object-semtype/{PREDICATION_ID}"
     ];
     rr:predicateObjectMap [
         rr:predicate sem:score ;
@@ -141,8 +141,8 @@
     ];
     rml:subjectMap [
         rr:template "http://semmeddb.com/entity/{ENTITY_ID}";
-        rr:graphMap [ 
-            rr:template "http://semmeddb.com/graph-entity/{ENTITY_ID}-{SEMTYPE}";
+        rr:graphMap [
+            rr:template "http://semmeddb.com/entity-semtype/{ENTITY_ID}-{SEMTYPE}";
         ]
     ];
 
@@ -158,7 +158,7 @@
         rml:source "ENTITY.csv"
     ];
     rml:subjectMap [
-        rr:template "http://semmeddb.com/graph-entity/{ENTITY_ID}-{SEMTYPE}"
+        rr:template "http://semmeddb.com/entity-semtype/{ENTITY_ID}-{SEMTYPE}"
     ];
     rr:predicateObjectMap [
         rr:predicate sem:score ;

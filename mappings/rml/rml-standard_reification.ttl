@@ -13,7 +13,7 @@
         rml:source "PREDICATION.csv" ;
     ];
     rml:subjectMap [
-        rr:template "http://semmeddb.com/statement-predication-subject/{PREDICATION_ID}" ;
+        rr:template "http://semmeddb.com/predication-subject/{PREDICATION_ID}" ;
         rr:termType rr:IRI ;
         rr:class rdf:Statement ;
     ];
@@ -33,7 +33,7 @@
     rr:predicateObjectMap [
         rr:predicate rdf:object ;
         rml:objectMap [
-            rr:template "http://semmeddb.com/subject-predication/{SUBJECT_NAME}";
+            rr:template "http://semmeddb.com/subject/{SUBJECT_NAME}";
             rr:termType rr:IRI;
         ]
     ].
@@ -43,7 +43,7 @@
         rml:source "PREDICATION.csv" ;
     ];
     rml:subjectMap [
-        rr:template "http://semmeddb.com/statement-predication-object/{PREDICATION_ID}" ;
+        rr:template "http://semmeddb.com/predication-object/{PREDICATION_ID}" ;
         rr:termType rr:IRI ;
         rr:class rdf:Statement ;
     ];
@@ -63,7 +63,7 @@
     rr:predicateObjectMap [
         rr:predicate rdf:object ;
         rml:objectMap [
-            rr:template "http://semmeddb.com/object-predication/{OBJECT_NAME}";
+            rr:template "http://semmeddb.com/object/{OBJECT_NAME}";
             rr:termType rr:IRI;
         ]
     ].
@@ -75,7 +75,7 @@
         rml:source "PREDICATION_AUX.csv"
     ];
     rml:subjectMap [
-        rr:template "http://semmeddb.com/statement-predication-subject/{PREDICATION_ID}" ;
+        rr:template "http://semmeddb.com/predication-subject/{PREDICATION_ID}" ;
         rr:termType rr:IRI ;
         rr:class rdf:Statement ;
     ];
@@ -91,7 +91,7 @@
         rml:source "PREDICATION_AUX.csv"
     ];
     rml:subjectMap [
-        rr:template "http://semmeddb.com/statement-predication-object/{PREDICATION_ID}" ;
+        rr:template "http://semmeddb.com/predication-object/{PREDICATION_ID}" ;
         rr:termType rr:IRI ;
         rr:class rdf:Statement ;
     ];
@@ -107,7 +107,7 @@
         rml:source "PREDICATION.csv" ;
     ];
     rml:subjectMap [
-        rr:template "http://semmeddb.com/statement-subject/{PREDICATION_ID}" ;
+        rr:template "http://semmeddb.com/subject-semtype/{PREDICATION_ID}" ;
         rr:termType rr:IRI ;
         rr:class rdf:Statement ;
     ];
@@ -115,7 +115,7 @@
     rr:predicateObjectMap [
         rr:predicate rdf:subject ;
         rml:objectMap [
-            rr:template "http://semmeddb.com/subject-predication/{SUBJECT_NAME}" ;
+            rr:template "http://semmeddb.com/subject/{SUBJECT_NAME}" ;
         ]
     ];
     rr:predicateObjectMap [
@@ -136,7 +136,7 @@
         rml:source "PREDICATION.csv" ;
     ];
     rml:subjectMap [
-        rr:template "http://semmeddb.com/statement-object/{PREDICATION_ID}" ;
+        rr:template "http://semmeddb.com/object-semtype/{PREDICATION_ID}" ;
         rr:termType rr:IRI ;
         rr:class rdf:Statement ;
     ];
@@ -144,7 +144,7 @@
     rr:predicateObjectMap [
         rr:predicate rdf:subject ;
         rml:objectMap [
-            rr:template "http://semmeddb.com/object-predication/{OBJECT_NAME}" ;
+            rr:template "http://semmeddb.com/object/{OBJECT_NAME}" ;
         ]
     ];
     rr:predicateObjectMap [
@@ -166,7 +166,7 @@
         rml:source "PREDICATION_AUX.csv"
     ];
     rml:subjectMap [
-        rr:template "http://semmeddb.com/statement-subject/{PREDICATION_ID}" ;
+        rr:template "http://semmeddb.com/subject-semtype/{PREDICATION_ID}" ;
         rr:termType rr:IRI ;
         rr:class rdf:Statement ;
     ];
@@ -184,7 +184,7 @@
         rml:source "PREDICATION_AUX.csv"
     ];
     rml:subjectMap [
-        rr:template "http://semmeddb.com/statement-object/{PREDICATION_ID}" ;
+        rr:template "http://semmeddb.com/object-semtype/{PREDICATION_ID}" ;
         rr:termType rr:IRI ;
         rr:class rdf:Statement ;
     ];
@@ -200,7 +200,7 @@
         rml:source "ENTITY.csv"
     ];
     rml:subjectMap [
-        rr:template "http://semmeddb.com/statement-entity/{ENTITY_ID}" ;
+        rr:template "http://semmeddb.com/entity-semtype/{ENTITY_ID}" ;
         rr:termType rr:IRI ;
         rr:class rdf:Statement ;
     ];
