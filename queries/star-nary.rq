@@ -25,18 +25,16 @@ CONSTRUCT
                      sem:score ?entity_score .
   }
 WHERE {
-  ?subject_predication_id sem:subject ?subject_name_iri .
-  ?object_predication_id sem:object ?object_name_iri .
   << ?subject_name_iri sem:semanticType ?subject_semtype >> sem:score ?subject_score .
   << ?object_name_iri sem:semanticType ?object_semtype >> sem:score ?object_score .
   << ?subject_predication_id sem:subject ?subject_name_iri >> sem:timestamp ?sub_timestamp .
   << ?object_predication_id sem:object ?object_name_iri >> sem:timestamp ?obj_timestamp .
   << ?entity_id_iri sem:semanticType ?entity_semtype >> sem:score ?entity_score .
 
-  BIND(URI(REPLACE(STR(?subject_predication_id), "http://semmeddb.com/predication/", "http://semmeddb.com/predication-subject-node/")) as ?predsub_node_iri)
-  BIND(URI(REPLACE(STR(?object_predication_id), "http://semmeddb.com/predication/", "http://semmeddb.com/predication-object-node/")) as ?predobj_node_iri)
-  BIND(URI(REPLACE(STR(?subject_predication_id), "http://semmeddb.com/predication/", "http://semmeddb.com/subject-node/")) as ?subject_node_iri)
-  BIND(URI(REPLACE(STR(?object_predication_id), "http://semmeddb.com/predication/", "http://semmeddb.com/object-node/")) as ?object_node_iri)
-  BIND(URI(REPLACE(STR(?entity_id_iri), "http://semmeddb.com/entity/", "http://semmeddb.com/entity-node/")) as ?entity_node_iri)
+  BIND(URI(REPLACE(STR(?subject_predication_id), "http://semmeddb.com/predication/", "http://semmeddb.com/predication-subject/")) as ?predsub_node_iri)
+  BIND(URI(REPLACE(STR(?object_predication_id), "http://semmeddb.com/predication/", "http://semmeddb.com/predication-object/")) as ?predobj_node_iri)
+  BIND(URI(REPLACE(STR(?subject_predication_id), "http://semmeddb.com/predication/", "http://semmeddb.com/subject-semtype/")) as ?subject_node_iri)
+  BIND(URI(REPLACE(STR(?object_predication_id), "http://semmeddb.com/predication/", "http://semmeddb.com/object-semtype/")) as ?object_node_iri)
+  BIND(URI(REPLACE(STR(?entity_id_iri), "http://semmeddb.com/entity/", "http://semmeddb.com/entity-semtype/")) as ?entity_node_iri)
 
 }

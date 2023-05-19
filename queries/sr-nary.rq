@@ -6,22 +6,22 @@ PREFIX  sem: <http://semmeddb.com/>
 
 CONSTRUCT
   {
-    ?subject_predication_id sem:predication-subject-node ?predsub_node_iri .
-    ?object_predication_id sem:predication-object-node ?predobj_node_iri .
-    ?predsub_node_iri sem:subject ?subject_name_iri ;
+    ?subject_predication_id sem:predication-subject-node ?predsub_stm_iri .
+    ?object_predication_id sem:predication-object-node ?predobj_stm_iri .
+    ?predsub_stm_iri sem:subject ?subject_name_iri ;
                       sem:timestamp ?sub_timestamp .
-    ?predobj_node_iri  sem:object ?object_name_iri ;
+    ?predobj_stm_iri  sem:object ?object_name_iri ;
                        sem:timestamp ?obj_timestamp .
 
-    ?subject_name_iri sem:subject-node ?subject_node_iri .
-    ?subject_node_iri sem:semanticType ?subject_semtype ;
+    ?subject_name_iri sem:subject-node ?subject_stm_iri .
+    ?subject_stm_iri sem:semanticType ?subject_semtype ;
                       sem:score ?subject_score .
-    ?object_name_iri sem:object-node ?object_node_iri .
-    ?object_node_iri sem:semanticType ?object_semtype ;
+    ?object_name_iri sem:object-node ?object_stm_iri .
+    ?object_stm_iri sem:semanticType ?object_semtype ;
                      sem:score ?object_score .
 
-    ?entity_id_iri sem:entity-node ?entity_node_iri .
-    ?entity_node_iri sem:semanticType ?entity_semtype ;
+    ?entity_id_iri sem:entity-node ?entity_stm_iri .
+    ?entity_stm_iri sem:semanticType ?entity_semtype ;
                      sem:score ?entity_score .
   }
 WHERE {
@@ -47,11 +47,4 @@ WHERE {
                rdf:object ?entity_semtype ;
                rdf:predicate sem:semanticType ;
                sem:score ?entity_score .
-
-  BIND(URI(REPLACE(STR(?predsub_stm_iri), "http://semmeddb.com/statement-predication-subject/", "http://semmeddb.com/predication-subject-node/")) as ?predsub_node_iri)
-  BIND(URI(REPLACE(STR(?predobj_stm_iri), "http://semmeddb.com/statement-predication-object/", "http://semmeddb.com/predication-object-node/")) as ?predobj_node_iri)
-  BIND(URI(REPLACE(STR(?subject_stm_iri), "http://semmeddb.com/statement-subject/", "http://semmeddb.com/subject-node/")) as ?subject_node_iri)
-  BIND(URI(REPLACE(STR(?object_stm_iri), "http://semmeddb.com/statement-object/", "http://semmeddb.com/object-node/")) as ?object_node_iri)
-  BIND(URI(REPLACE(STR(?entity_stm_iri), "http://semmeddb.com/statement-entity/", "http://semmeddb.com/entity-node/")) as ?entity_node_iri)
-
 }
