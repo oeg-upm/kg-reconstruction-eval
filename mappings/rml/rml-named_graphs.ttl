@@ -92,7 +92,7 @@
         rml:source "PREDICATION.csv";
     ];
     rml:subjectMap [
-        rr:template "http://semmeddb.com/objectn/{OBJECT_NAME}";
+        rr:template "http://semmeddb.com/object/{OBJECT_NAME}";
         rr:graphMap [ rr:template "http://semmeddb.com/object-semtype/{PREDICATION_ID}"]
     ];
 
