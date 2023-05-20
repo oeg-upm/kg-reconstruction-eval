@@ -6,18 +6,18 @@ PREFIX  sem: <http://semmeddb.com/>
 
 CONSTRUCT
   {
-    GRAPH ?predsub_graph_iri { ?subject_predication_id sem:subject ?subject_name_iri } .
-    GRAPH ?predobj_graph_iri { ?object_predication_id sem:object ?object_name_iri } .
-    ?predsub_graph_iri sem:timestamp ?sub_timestamp .
-    ?predobj_graph_iri sem:timestamp ?obj_timestamp .
+    GRAPH ?predsub_node_iri { ?subject_predication_id sem:subject ?subject_name_iri } .
+    GRAPH ?predobj_node_iri { ?object_predication_id sem:object ?object_name_iri } .
+    ?predsub_node_iri sem:timestamp ?sub_timestamp .
+    ?predobj_node_iri sem:timestamp ?obj_timestamp .
 
-    GRAPH ?subject_graph_iri { ?subject_name_iri sem:semanticType ?subject_semtype } .
-    GRAPH ?object_graph_iri { ?object_name_iri sem:semanticType ?object_semtype } .
-    ?subject_graph_iri sem:score ?subject_score .
-    ?object_graph_iri sem:score ?object_score .
+    GRAPH ?subject_node_iri { ?subject_name_iri sem:semanticType ?subject_semtype } .
+    GRAPH ?object_node_iri { ?object_name_iri sem:semanticType ?object_semtype } .
+    ?subject_node_iri sem:score ?subject_score .
+    ?object_node_iri sem:score ?object_score .
 
-    GRAPH ?entity_graph_iri { ?entity_id_iri sem:semanticType ?entity_semtype } .
-    ?entity_graph_iri sem:score ?entity_score .
+    GRAPH ?entity_node_iri { ?entity_id_iri sem:semanticType ?entity_semtype } .
+    ?entity_node_iri sem:score ?entity_score .
 
   }
 WHERE {
@@ -38,11 +38,5 @@ WHERE {
   ?entity_id_iri sem:entity-node ?entity_node_iri .
   ?entity_node_iri sem:semanticType ?entity_semtype ;
                    sem:score ?entity_score .
-
-  BIND(URI(REPLACE(STR(?predsub_node_iri), "http://semmeddb.com/predication-subject-node/", "http://semmeddb.com/graph-pred-subject/")) as ?predsub_graph_iri)
-  BIND(URI(REPLACE(STR(?predobj_node_iri), "http://semmeddb.com/predication-object-node/", "http://semmeddb.com/graph-pred-object/")) as ?predobj_graph_iri)
-  BIND(URI(REPLACE(STR(?subject_node_iri), "http://semmeddb.com/subject-node/", "http://semmeddb.com/graph-subject/")) as ?subject_graph_iri)
-  BIND(URI(REPLACE(STR(?object_node_iri), "http://semmeddb.com/object-node/", "http://semmeddb.com/graph-object/")) as ?object_graph_iri)
-  BIND(URI(REPLACE(STR(?entity_node_iri), "http://semmeddb.com/entity-node/", "http://semmeddb.com/graph-entity/")) as ?entity_graph_iri)
 
 }

@@ -21,18 +21,20 @@ CONSTRUCT
 
   }
 WHERE {
-  ?subject_predication_id sem:subject ?subject_name_iri .
-  ?object_predication_id sem:object ?object_name_iri .
   << ?subject_name_iri sem:semanticType ?subject_semtype >> sem:score ?subject_score .
   << ?object_name_iri sem:semanticType ?object_semtype >> sem:score ?object_score .
   << ?subject_predication_id sem:subject ?subject_name_iri >> sem:timestamp ?sub_timestamp .
   << ?object_predication_id sem:object ?object_name_iri >> sem:timestamp ?obj_timestamp .
   << ?entity_id_iri sem:semanticType ?entity_semtype >> sem:score ?entity_score .
 
-  BIND(URI(REPLACE(STR(?subject_predication_id), "http://semmeddb.com/predication/", "http://semmeddb.com/graph-pred-subject/")) as ?predsub_graph_iri)
-  BIND(URI(REPLACE(STR(?object_predication_id), "http://semmeddb.com/predication/", "http://semmeddb.com/graph-pred-object/")) as ?predobj_graph_iri)
-  BIND(URI(REPLACE(STR(?subject_predication_id), "http://semmeddb.com/predication/", "http://semmeddb.com/graph-subject/")) as ?subject_graph_iri)
-  BIND(URI(REPLACE(STR(?object_predication_id), "http://semmeddb.com/predication/", "http://semmeddb.com/graph-object/")) as ?object_graph_iri)
-  BIND(URI(REPLACE(STR(?entity_id_iri), "http://semmeddb.com/entity/", "http://semmeddb.com/graph-entity/")) as ?entity_graph_iri)
+  FILTER(CONTAINS(STR(?subject_name_iri), "http://semmeddb.com/subject/"))
+  FILTER(CONTAINS(STR(?object_name_iri), "http://semmeddb.com/object/"))
+  FILTER(CONTAINS(STR(?entity_id_iri), "http://semmeddb.com/entity/"))
+
+  BIND(URI(REPLACE(STR(?subject_predication_id), "http://semmeddb.com/predication/", "http://semmeddb.com/predication-subject/")) as ?predsub_graph_iri)
+  BIND(URI(REPLACE(STR(?object_predication_id), "http://semmeddb.com/predication/", "http://semmeddb.com/predication-object/")) as ?predobj_graph_iri)
+  BIND(URI(REPLACE(STR(?subject_predication_id), "http://semmeddb.com/predication/", "http://semmeddb.com/subject-semtype/")) as ?subject_graph_iri)
+  BIND(URI(REPLACE(STR(?object_predication_id), "http://semmeddb.com/predication/", "http://semmeddb.com/object-semtype/")) as ?object_graph_iri)
+  BIND(URI(REPLACE(STR(?entity_id_iri), "http://semmeddb.com/entity/", "http://semmeddb.com/entity-semtype/")) as ?entity_graph_iri)
 
 }
