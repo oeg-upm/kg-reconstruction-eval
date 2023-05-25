@@ -18,13 +18,13 @@ CONSTRUCT {
                        sem:timestamp ?timestamp .
 }
 WHERE {
-
-  GRAPH ?entity_graph_iri { ?entity_id_iri sem:semanticType ?entity_semtype }
-
-  GRAPH ?predobsub_graph_iri { ?predication_id ?p ?obsub_name_iri }
-
+  {GRAPH ?entity_graph_iri { ?entity_id_iri sem:semanticType ?entity_semtype }
   ?entity_graph_iri sem:score ?entity_score .
-  ?predobsub_graph_iri sem:timestamp ?timestamp .
-
   VALUES ?p {sem:subject sem:object}
+  }
+  UNION
+  {
+  GRAPH ?predobsub_graph_iri { ?predication_id ?p ?obsub_name_iri }
+  ?predobsub_graph_iri sem:timestamp ?timestamp .
+  }
 }
