@@ -6,42 +6,24 @@ PREFIX  sem: <http://semmeddb.com/>
 
 CONSTRUCT
   {
-    GRAPH ?predsub_stm_iri { ?subject_predication_id sem:subject ?subject_name_iri } .
-    GRAPH ?predobj_stm_iri { ?object_predication_id sem:object ?object_name_iri } .
+    GRAPH ?predsub_stm_iri { ?subject_predication_id ?predicate_value ?subject_name_iri } .
     ?predsub_stm_iri sem:timestamp ?sub_timestamp .
-    ?predobj_stm_iri sem:timestamp ?obj_timestamp .
-
-    GRAPH ?subject_stm_iri { ?subject_name_iri sem:semanticType ?subject_semtype } .
-    GRAPH ?object_stm_iri { ?object_name_iri sem:semanticType ?object_semtype } .
-    ?subject_stm_iri sem:score ?subject_score .
-    ?object_stm_iri sem:score ?object_score .
 
     GRAPH ?entity_stm_iri { ?entity_id_iri sem:semanticType ?entity_semtype } .
     ?entity_stm_iri sem:score ?entity_score .
 
   }
 WHERE {
-  ?predsub_stm_iri rdf:subject ?subject_predication_id ;
-                   rdf:object ?subject_name_iri ;
-                   rdf:predicate sem:subject ;
-                    sem:timestamp ?sub_timestamp .
-  ?predobj_stm_iri rdf:subject ?object_predication_id ;
-                   rdf:object ?object_name_iri ;
-                   rdf:predicate sem:object ;
-                    sem:timestamp ?obj_timestamp .
-
-  ?subject_stm_iri rdf:subject ?subject_name_iri ;
-                   rdf:object ?subject_semtype ;
-                   rdf:predicate sem:semanticType ;
-                   sem:score ?subject_score .
-  ?object_stm_iri rdf:subject ?object_name_iri ;
-               rdf:object ?object_semtype ;
-               rdf:predicate sem:semanticType ;
-               sem:score ?object_score .
-
+{
+ VALUES ?predicate_value {sem:object sem:subject}
+ ?predsub_stm_iri rdf:subject ?subject_predication_id ;
+                  rdf:object ?subject_name_iri ;
+                  rdf:predicate ?predicate_value ;
+                   sem:timestamp ?sub_timestamp .
+} UNION {
   ?entity_stm_iri rdf:subject ?entity_id_iri ;
-               rdf:object ?entity_semtype ;
-               rdf:predicate sem:semanticType ;
-               sem:score ?entity_score .
-
+             rdf:object ?entity_semtype ;
+             rdf:predicate sem:semanticType ;
+             sem:score ?entity_score .
+ }
 }

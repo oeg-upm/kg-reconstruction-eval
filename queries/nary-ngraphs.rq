@@ -7,36 +7,25 @@ PREFIX  sem: <http://semmeddb.com/>
 CONSTRUCT
   {
     GRAPH ?predsub_node_iri { ?subject_predication_id sem:subject ?subject_name_iri } .
-    GRAPH ?predobj_node_iri { ?object_predication_id sem:object ?object_name_iri } .
     ?predsub_node_iri sem:timestamp ?sub_timestamp .
-    ?predobj_node_iri sem:timestamp ?obj_timestamp .
-
-    GRAPH ?subject_node_iri { ?subject_name_iri sem:semanticType ?subject_semtype } .
-    GRAPH ?object_node_iri { ?object_name_iri sem:semanticType ?object_semtype } .
-    ?subject_node_iri sem:score ?subject_score .
-    ?object_node_iri sem:score ?object_score .
 
     GRAPH ?entity_node_iri { ?entity_id_iri sem:semanticType ?entity_semtype } .
     ?entity_node_iri sem:score ?entity_score .
 
   }
 WHERE {
-  ?subject_predication_id sem:predication-subject-node ?predsub_node_iri .
-  ?object_predication_id sem:predication-object-node ?predobj_node_iri .
-  ?predsub_node_iri sem:subject ?subject_name_iri ;
+
+  {VALUES ?pred_node_value {sem:predication-subject-node sem:predication-object-node}
+  VALUES ?pred_value {sem:subject sem:object}
+  ?subject_predication_id ?pred_node_value ?predsub_node_iri .
+  ?predsub_node_iri ?pred_value ?subject_name_iri ;
                     sem:timestamp ?sub_timestamp .
-  ?predobj_node_iri  sem:object ?object_name_iri ;
-                     sem:timestamp ?obj_timestamp .
-
-  ?subject_name_iri sem:subject-node ?subject_node_iri .
-  ?subject_node_iri sem:semanticType ?subject_semtype ;
-                    sem:score ?subject_score .
-  ?object_name_iri sem:object-node ?object_node_iri .
-  ?object_node_iri sem:semanticType ?object_semtype ;
-                   sem:score ?object_score .
-
-  ?entity_id_iri sem:entity-node ?entity_node_iri .
+  }
+  UNION
+  {
+  VALUES ?pred_semtype_node {sem:subject-node sem:object-node sem:entity-node}
+  ?entity_id_iri ?pred_semtype_node ?entity_node_iri .
   ?entity_node_iri sem:semanticType ?entity_semtype ;
                    sem:score ?entity_score .
-
+  }
 }
