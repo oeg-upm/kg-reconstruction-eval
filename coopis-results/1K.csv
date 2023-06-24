@@ -1,0 +1,5 @@
+tc,Oxigraph,Fuseki,GraphDB,Morph-KGC,SPARQL-Anything
+reification,0.73,0.31,0.26,1.42,1.44
+rdf-star,0.50,0.12,0.13,1.18,1.35
+named-graphs,N/A,0.30,N/A,1.13,1.39
+n-ary,1.14,0.53,0.24,1.23,1.37
