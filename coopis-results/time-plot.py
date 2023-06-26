@@ -44,15 +44,15 @@ def plot(data, scale):
     # r9 = [x + barWidth * 8 for x in r1]
     # r10 = [x + barWidth * 9 for x in r1]
 
-    plt.bar(r1, ordered_data.values.tolist()[0], width=barWidth, color='#F2BABA',  # F2BABA
+    plt.bar(r1, ordered_data.values.tolist()[0], width=barWidth, color='#FC9F5B',  # F2BABA
             label='Oxigraph')
-    plt.bar(r2, ordered_data.values.tolist()[1], width=barWidth, color='#A46593',  # A46593
+    plt.bar(r2, ordered_data.values.tolist()[1], width=barWidth, color='#FBD1A2',  # A46593
             label='Fuseki', )
-    plt.bar(r3, ordered_data.values.tolist()[2], width=barWidth, color='#FCAB64',  # B1ACAA
+    plt.bar(r3, ordered_data.values.tolist()[2], width=barWidth, color='#ECE4B7',  # B1ACAA
             label='GraphDB')
-    plt.bar(r4, ordered_data.values.tolist()[3], width=barWidth, color='#B1ACAA',  # B1ACAA
+    plt.bar(r4, ordered_data.values.tolist()[3], width=barWidth, color='#7DCFB6',  # B1ACAA
             label='Morph-KGC')
-    plt.bar(r5, ordered_data.values.tolist()[4], width=barWidth, color='#2862CC',  # 2862CC
+    plt.bar(r5, ordered_data.values.tolist()[4], width=barWidth, color='#33CA7F',  # 2862CC
             label='SPARQL-Anything')
 
     plt.xticks([r + barWidth * 1.5 for r in range(len(r1))], map(lambda each: each.strip(""), technique),
