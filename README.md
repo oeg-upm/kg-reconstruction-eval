@@ -1,1 +1,1 @@
-# resources-semantics23
+# Reificated Knowledge Graph: Constructing or Re-construction? Evaluation setup
