@@ -1,4 +1,4 @@
-# Constructing or Re-construction? An RDF reification evaluation
+# Constructing or Re-Constructing Knowledge Graphs? A Reification Perspective
 We investigate two alternatives for re-constructing an existing graph with different structure from a reification perspective. This work is useful when there is a need for reification and the KG engineers responsible for the construction of a KG want to explore alternatives. We evaluate KG re-construction in four reifications with (i) KG construction systems, that construct the KG from heterogeneous data with declarative mappings; and (ii) using CONSTRUCT queries from KG stored in triplestores.
 
 
