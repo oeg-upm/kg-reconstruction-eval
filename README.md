@@ -1,6 +1,9 @@
 # Constructing or Re-Constructing Knowledge Graphs? A Reification Perspective
 We investigate two alternatives for re-constructing an existing graph with different structure from a reification perspective. This work is useful when there is a need for reification and the KG engineers responsible for the construction of a KG want to explore alternatives. We evaluate KG re-construction in four reifications with (i) KG construction systems, that construct the KG from heterogeneous data with declarative mappings; and (ii) using CONSTRUCT queries from KG stored in triplestores.
 
+<p align="center">
+ <img src="https://github.com/oeg-upm/kg-reconstruction-eval/assets/36294992/d8383308-fc20-4188-b631-e7b7df2d5757" alt="workflow" width="650"/>
+</p>
 
 ## Engines
 We test the performance and scalability of a set of KG construction and triplestores:
