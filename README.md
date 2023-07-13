@@ -11,8 +11,8 @@ KG Construction Engines:
 
 Triplestores:
 - [GraphDB v10.2.1](https://graphdb.ontotext.com/)
-- [Jena Fuseki (v4.8.0)](https://jena.apache.org/download/)
-- [Oxigraph (v0.3.1)](https://github.com/oxigraph/oxigraph/releases/tag/v0.3.10)
+- [Jena Fuseki v4.8.0](https://jena.apache.org/download/)
+- [Oxigraph v0.3.1](https://github.com/oxigraph/oxigraph/releases/tag/v0.3.10)
 
 
 ## Evaluation resources: SemMedDB
