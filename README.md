@@ -1,1 +1,3 @@
-# Reificated Knowledge Graph: Constructing or Re-construction? Evaluation setup
+# Constructing or Re-construction? An RDF reification evaluation
+
+
