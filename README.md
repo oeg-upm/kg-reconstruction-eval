@@ -35,12 +35,12 @@ We perform the evaluation with this dataset structured in four metadata represen
 - [SPARQL CONSTRUCT queries](https://github.com/oeg-upm/kg-reconstruction-eval/tree/main/queries)
 
 
-All results (including fine-grained ones) can be found [here](https://github.com/oeg-upm/kg-reconstruction-eval/tree/main/results)
+All results (including fine-grained ones) can be found [here](https://github.com/oeg-upm/kg-reconstruction-eval/tree/main/results).
 
 
 
 ## Authors
-- Ana Iglesias (Ontology Engineering Group - UPM)
+- Ana Iglesias-Molina (Ontology Engineering Group - UPM)
 - David Chaves-Fraga (Ontology Engineering Group - UPM)
 - Jhon Toledo (Ontology Engineering Group - UPM) 
 
