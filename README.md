@@ -1,5 +1,5 @@
-# Constructing or Re-Constructing Knowledge Graphs? A Reification Perspective
-We investigate two alternatives for re-constructing an existing graph with different structure from a reification perspective. This work is useful when there is a need for reification and the KG engineers responsible for the construction of a KG want to explore alternatives. We evaluate KG re-construction in four reifications with (i) KG construction systems, that construct the KG from heterogeneous data with declarative mappings; and (ii) using CONSTRUCT queries from KG stored in triplestores.
+# (Re)Construction Impact on Metadata Representation Models
+We investigate two alternatives for re-constructing an existing graph to interchange between different metadata representation models. This work is useful when is needed to change the metadata representation in a pre-existing KG and the KG engineers responsible for the construction of a KG want to explore alternatives. We evaluate KG re-construction in four representations with (i) KG construction systems, that construct the KG from heterogeneous data with declarative mappings; and (ii) using CONSTRUCT queries from KG stored in triplestores.
 
 <p align="center">
  <img src="https://github.com/oeg-upm/kg-reconstruction-eval/assets/36294992/d8383308-fc20-4188-b631-e7b7df2d5757" alt="workflow" width="650"/>
@@ -24,7 +24,9 @@ Triplestores:
 [SemMedDB](https://lhncbc.nlm.nih.gov/ii/tools/SemRep_SemMedDB_SKR.html), the Semantic MEDLINE Database, is a repository that contains information of extracted biomedical entities and predications (subject-predicate-object triples) from biomedical texts (titles and abstracts from PubMed citations). 
 
 The tables that comprise SemMedDB are available for [download as a relational database or CSV files](https://lhncbc.nlm.nih.gov/ii/tools/SemRep_SemMedDB_SKR/SemMedDB_download.html).
-The data in this use case is licensed under the [UMLS - Metathesaurus License Agreement](https://www.nlm.nih.gov/research/umls/knowledge_sources/metathesaurus/release/license_agreement.html), which does not allow for its distribution (Data may be accessed by obtaining an account with the UMLS licence [here](https://www.nlm.nih.gov/databases/umls.html))
+The data in this use case is licensed under the [UMLS - Metathesaurus License Agreement](https://www.nlm.nih.gov/research/umls/knowledge_sources/metathesaurus/release/license_agreement.html), which does not allow for its distribution (Data may be accessed by obtaining an account with the UMLS licence [here](https://www.nlm.nih.gov/databases/umls.html)). 
+
+We perform the evaluation with this dataset structured in four metadata representations (Standard Reification, Named Graphs, N-Ary Relationships and RDF-star) and in four size scales (1K, 10K, 100K and 1M).
 
 ### Mappings and Queries
 
