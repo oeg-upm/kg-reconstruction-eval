@@ -44,6 +44,7 @@ WHERE  {
             xyz:OBJECT_SEMTYPE  ?object_semtype;
 
         bind(uri(concat(str("http://semmeddb.com/predication/"),encode_for_uri(?predication_id))) as ?subject_predication_id)
+        bind(uri(concat(str("http://semmeddb.com/predication/"),encode_for_uri(?predication_id))) as ?object_predication_id)
         bind(uri(concat(str("http://semmeddb.com/subject/"),encode_for_uri(?subject_name))) as ?subject_name_iri)
         bind(uri(concat(str("http://semmeddb.com/object/"),encode_for_uri(?object_name))) as ?object_name_iri)
 
