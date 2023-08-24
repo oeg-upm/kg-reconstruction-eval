@@ -25,19 +25,28 @@ CONSTRUCT
                      sem:score ?entity_score .
   }
 WHERE {
-  {<< ?subject_name_iri sem:semanticType ?subject_semtype >> sem:score ?subject_score .
+  {
+  << ?subject_name_iri sem:semanticType ?subject_semtype >> sem:score ?subject_score .
+  FILTER(CONTAINS(STR(?subject_name_iri), "http://semmeddb.com/subject/"))
+  BIND(URI(CONCAT(STR("http://semmeddb.com/subject-semtype/"),encode_for_uri(str(rand())))) as ?subject_node_iri)
+  }
+  UNION
+  {
   << ?subject_predication_id sem:subject ?subject_name_iri >> sem:timestamp ?sub_timestamp .
   FILTER(CONTAINS(STR(?subject_name_iri), "http://semmeddb.com/subject/"))
   BIND(URI(REPLACE(STR(?subject_predication_id), "http://semmeddb.com/predication/", "http://semmeddb.com/predication-subject/")) as ?predsub_node_iri)
-  BIND(URI(REPLACE(STR(?subject_predication_id), "http://semmeddb.com/predication/", "http://semmeddb.com/subject-semtype/")) as ?subject_node_iri)
   }
   UNION
   {
   << ?object_name_iri sem:semanticType ?object_semtype >> sem:score ?object_score .
+  FILTER(CONTAINS(STR(?object_name_iri), "http://semmeddb.com/object/"))
+  BIND(URI(CONCAT(STR("http://semmeddb.com/object-semtype/"),encode_for_uri(str(rand())))) as ?object_node_iri)
+  }
+  UNION
+  {
   << ?object_predication_id sem:object ?object_name_iri >> sem:timestamp ?obj_timestamp .
   FILTER(CONTAINS(STR(?object_name_iri), "http://semmeddb.com/object/"))
   BIND(URI(REPLACE(STR(?object_predication_id), "http://semmeddb.com/predication/", "http://semmeddb.com/predication-object/")) as ?predobj_node_iri)
-  BIND(URI(REPLACE(STR(?object_predication_id), "http://semmeddb.com/predication/", "http://semmeddb.com/object-semtype/")) as ?object_node_iri)
   }
   UNION
   {
