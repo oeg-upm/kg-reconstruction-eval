@@ -1,0 +1,30 @@
+PREFIX  ex: <http://example.org/>
+PREFIX  rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX  rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX  ex: <http://example/>
+PREFIX  sem: <http://semmeddb.com/>
+
+CONSTRUCT
+  {
+  ?subject_predication_id sem:subject ?subject_name_iri .
+  << ?subject_predication_id sem:subject ?subject_name_iri >> sem:timestamp ?sub_timestamp .
+
+  ?entity_id_iri sem:semanticType ?entity_semtype .
+  << ?entity_id_iri sem:semanticType ?entity_semtype >> sem:score ?entity_score .
+  }
+WHERE {
+
+  {VALUES ?pred_node_value {sem:predication-subject-node sem:predication-object-node}
+  VALUES ?pred_value {sem:subject sem:object}
+  ?subject_predication_id ?pred_node_value ?predsub_node_iri .
+  ?predsub_node_iri ?pred_value ?subject_name_iri ;
+                    sem:timestamp ?sub_timestamp .
+}
+UNION
+{
+  VALUES ?pred_semtype_node {sem:subject-node sem:object-node sem:entity-node}
+  ?entity_id_iri ?pred_semtype_node ?entity_node_iri .
+  ?entity_node_iri sem:semanticType ?entity_semtype ;
+                   sem:score ?entity_score .
+}
+}

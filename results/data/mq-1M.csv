@@ -1,5 +1,5 @@
-,Oxigraph,Fuseki,GraphDB,Morph-KGC,SPARQL-Anything
-reification,2264.60,932.62,412.02,121.85,234.61
-rdf-star,489.74,131.48,91.15,78.48,175.59
-named-graphs,N/A,927.74,N/A,57.86,214.74
-n-ary,43200,43200,12784.07054,76.82,238.76
+tc,Oxigraph,Fuseki,GraphDB,Morph-KGC,SPARQL-Anything
+reification,470.825,164.658,207.63,121.845,234.606
+rdf-star,489.737,131.48,91.153,78.476,214.874
+named-graphs,N/A,158.678,N/A,57.861,214.738
+n-ary,285.841,7473.445,6084.3,76.821,238.764

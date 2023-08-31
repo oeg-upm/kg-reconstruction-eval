@@ -1,0 +1,60 @@
+PREFIX  ex: <http://example.org/>
+PREFIX  rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX  rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX  ex: <http://example/>
+PREFIX  sem: <http://semmeddb.com/>
+
+CONSTRUCT {
+
+  ?subject_predication_id sem:predication-subject-node ?predsub_graph_iri .
+  ?object_predication_id sem:predication-object-node ?predobj_graph_iri .
+  ?predsub_graph_iri sem:subject ?subject_name_iri ;
+                    sem:timestamp ?sub_timestamp .
+  ?predobj_graph_iri  sem:object ?object_name_iri ;
+                     sem:timestamp ?obj_timestamp .
+
+  ?subject_name_iri sem:subject-node ?subject_graph_iri .
+  ?subject_graph_iri sem:semanticType ?subject_semtype ;
+                   sem:score ?subject_score .
+  ?object_name_iri sem:object-node ?object_graph_iri .
+  ?object_graph_iri sem:semanticType ?object_semtype ;
+                   sem:score ?object_score .
+
+  ?entity_id_iri sem:entity-node ?entity_graph_iri .
+  ?entity_graph_iri sem:semanticType ?entity_semtype ;
+                   sem:score ?entity_score .
+
+}
+WHERE {
+  {GRAPH ?predsub_graph_iri {
+      ?subject_predication_id sem:subject ?subject_name_iri
+      }
+  ?predsub_graph_iri sem:timestamp ?sub_timestamp .
+  GRAPH ?subject_graph_iri {
+        ?subject_name_iri sem:semanticType ?subject_semtype
+        FILTER(CONTAINS(STR(?subject_name_iri), "http://semmeddb.com/subject/"))
+        }
+    ?subject_graph_iri sem:score ?subject_score .
+
+  }
+  UNION
+  {
+  GRAPH ?predobj_graph_iri {
+      ?object_predication_id sem:object ?object_name_iri
+      }
+  ?predobj_graph_iri sem:timestamp ?obj_timestamp .
+  GRAPH ?object_graph_iri {
+      ?object_name_iri sem:semanticType ?object_semtype
+      FILTER(CONTAINS(STR(?object_name_iri), "http://semmeddb.com/object/"))
+      }
+  ?object_graph_iri sem:score ?object_score .
+  }
+  UNION
+  {
+  GRAPH ?entity_graph_iri {
+      ?entity_id_iri sem:semanticType ?entity_semtype
+      FILTER(CONTAINS(STR(?entity_id_iri), "http://semmeddb.com/entity/"))
+      }
+  ?entity_graph_iri sem:score ?entity_score .
+  }
+}
